@@ -6,8 +6,21 @@ const TextInput = () => {
   // To store text that the user inputs and updating text state from Textarea onChange
   const [text, setText] = useState('');
 
+  const toast = useToast();
+
   const submitText = () => {
-    console.log('submit');
+    // Checking if text is empty
+    if ( text === '') {
+      toast({
+        title: 'Text field is empty.',
+        description: 'Please enter some text to extract keywords.',
+        status: 'error',
+        duration: 5000,
+        isClosable: false,
+      });
+      return;
+    }
+    console.log('proceed');
   }
   
   return(
