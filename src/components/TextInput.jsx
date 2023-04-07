@@ -2,7 +2,8 @@ import {useState } from 'react'
 import { Button, Textarea } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 
-const TextInput = () => {
+// Add prop of extractKeywords
+const TextInput = ({ extractKeywords }) => {
   // To store text that the user inputs and updating text state from Textarea onChange
   const [text, setText] = useState('');
 
@@ -21,7 +22,9 @@ const TextInput = () => {
       return;
     }
     console.log('proceed');
-  }
+    // Send text from return to call function
+    extractKeywords(text);
+  };
   
   return(
     <>

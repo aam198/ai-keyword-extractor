@@ -1,15 +1,19 @@
 import { Container, Box } from '@chakra-ui/react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { useState } from 'react'
 import TextInput from './components/TextInput'
-// https://www.traversymedia.com/blog/ai-keyword-extractor-with-react-openai
+
+const extractKeywords = (text) => {
+  console.log(text);
+}
 
 const App = () => {
   return (
     <Box bg='blue.600' color='white' height='100vh' paddingTop={130}>
       <Container maxW='3xl' centerContent>
         <Header />
-        <TextInput />
+        <TextInput extractKeywords={extractKeywords} />
         <Footer />
       </Container>
     </Box>
@@ -17,3 +21,4 @@ const App = () => {
 };
 
 export default App;
+
