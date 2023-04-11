@@ -12,7 +12,18 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const extractKeywords = (text) => {
-    console.log(text);
+    console.log(text)
+    setLoading(true)
+    setIsOpen(true)
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+      },
+      
+    }
   }
 
   return (
