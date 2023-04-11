@@ -4,11 +4,17 @@ import Footer from './components/Footer'
 import { useState } from 'react'
 import TextInput from './components/TextInput'
 
-const extractKeywords = (text) => {
-  console.log(text);
-}
 
 const App = () => {
+  // Keywords extracted, modal state, loader state
+  const [keywords, setKeywords] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const extractKeywords = (text) => {
+    console.log(text);
+  }
+
   return (
     <Box bg='blue.600' color='white' height='100vh' paddingTop={130}>
       <Container maxW='3xl' centerContent>

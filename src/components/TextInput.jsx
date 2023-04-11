@@ -2,6 +2,7 @@ import {useState } from 'react'
 import { Button, Textarea } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 
+
 // Add prop of extractKeywords
 const TextInput = ({ extractKeywords }) => {
   // To store text that the user inputs and updating text state from Textarea onChange
