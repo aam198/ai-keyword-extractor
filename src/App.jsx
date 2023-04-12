@@ -41,14 +41,18 @@ const App = () => {
         // decreases words used in the phrase
         presence_penalty: 0.0,
       }),
-    }
+    };
     
     try {
-      const response = await fetch(import.meta.env.VITE_OPENAI_API_URL, options);
+      const response = await fetch(
+        import.meta.env.VITE_OPENAI_API_URL,
+        options
+      );
       const json = await response.json();
       console.log(json.choices[0].text.trim());
-      setKeywords(json.choices[0].text.trim());
-      setLoading(false);
+      // Setting the state of keywords and loader
+      // setKeywords(json.choices[0].text.trim());
+      // setLoading(false);
     }
     catch (error){
       console.log(error);
