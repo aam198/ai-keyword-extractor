@@ -24,14 +24,21 @@ const App = () => {
         Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
+        // Setting OpenAi model
         model: 'text-davinci-003',
+        // Passing in a prompt with direction prior to actual text from user input.
         prompt: 
           'Extract keywords from this text. Make the first letter of every word uppercase and separate with commas: \n\n' + 
           text + '',
+        //Temperature controls random and creative responses. 
         temperature: 0.5,
+        // Max number of words with response from api
         max_tokens: 60,
+        // control the diversity of returned text
         top_p: 1.0,
+        // decrease repeated phrases or words another 0-1 range
         frequency_penalty: 0.8,
+        // decreases words used in the phrase
         presence_penalty: 0.0,
       }),
     }
