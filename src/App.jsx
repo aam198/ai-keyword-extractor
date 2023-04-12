@@ -33,7 +33,7 @@ const App = () => {
         //Temperature controls random and creative responses. 
         temperature: 0.5,
         // Max number of words with response from api
-        max_tokens: 60,
+        max_tokens: 40,
         // control the diversity of returned text
         top_p: 1.0,
         // decrease repeated phrases or words another 0-1 range
@@ -51,8 +51,8 @@ const App = () => {
       const json = await response.json();
       console.log(json.choices[0].text.trim());
       // Setting the state of keywords and loader
-      // setKeywords(json.choices[0].text.trim());
-      // setLoading(false);
+      setKeywords(json.choices[0].text.trim());
+      setLoading(false);
     }
     catch (error){
       console.log(error);
