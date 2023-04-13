@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { useState } from 'react'
 import TextInput from './components/TextInput'
+import KeywordsModal from './components/KeywordsModal'
 
 
 const App = () => {
@@ -10,6 +11,10 @@ const App = () => {
   const [keywords, setKeywords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
 
   const extractKeywords = async (text) => {
     console.log(text)
@@ -56,6 +61,8 @@ const App = () => {
     }
     catch (error){
       console.log(error);
+      setLoading(false)
+      setKeywords(`Error! Check the console`)
     }
   };
 
@@ -66,6 +73,12 @@ const App = () => {
         <TextInput extractKeywords={extractKeywords} />
         <Footer />
       </Container>
+      <KeywordsModal
+        keywords={keywords}
+        loading={loading}
+        isOpen={isOpen}
+        closeModal={closeModal}
+        />
     </Box>
   );
 };

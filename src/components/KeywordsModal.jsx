@@ -1,5 +1,6 @@
 import { Text, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, CircularProgress, } from '@chakra-ui/react'
 
+// Passing in from App component
 const KeywordsModal = ({ keywords, loading, isOpen, closeModal }) => {
   return (
     <>
@@ -9,14 +10,22 @@ const KeywordsModal = ({ keywords, loading, isOpen, closeModal }) => {
           <ModalHeader>Keywords</ModalHeader>
           <ModalCloseButton />
           <ModalBody display='flex' alignItems='center' justifyContent='center'>
+            {/* If Loading State is true */}
             {loading ? (
               <CircularProgress isIndeterminate color='blue.300' />) : (
                 <Text>{keywords}</Text>
             )}
           </ModalBody>
-          
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={closeModal}>
+              Close
+            </Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
   ) 
 }
+
+export default KeywordsModal;
